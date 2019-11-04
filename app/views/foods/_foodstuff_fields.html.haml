@@ -1,0 +1,6 @@
+.foodstuffs_nested-fields
+  %p 材料
+  = f.text_field :material
+  %p 量
+  = f.text_field :amount
+  = link_to_remove_association '削除', f, class: 'remove-btn'

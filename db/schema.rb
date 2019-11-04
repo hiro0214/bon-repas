@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_04_054746) do
+ActiveRecord::Schema.define(version: 2019_11_04_085857) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -24,13 +24,29 @@ ActiveRecord::Schema.define(version: 2019_11_04_054746) do
     t.bigint "user_id", null: false
     t.string "food_name", null: false
     t.string "text", null: false
-    t.string "material", null: false
     t.string "category_id", null: false
     t.integer "goods_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image", null: false
     t.index ["user_id"], name: "index_foods_on_user_id"
+  end
+
+  create_table "foodstuffs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "food_id", null: false
+    t.string "material", null: false
+    t.string "amount", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["food_id"], name: "index_foodstuffs_on_food_id"
+  end
+
+  create_table "recipes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "food_id", null: false
+    t.string "process", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["food_id"], name: "index_recipes_on_food_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -47,4 +63,6 @@ ActiveRecord::Schema.define(version: 2019_11_04_054746) do
   end
 
   add_foreign_key "foods", "users"
+  add_foreign_key "foodstuffs", "foods"
+  add_foreign_key "recipes", "foods"
 end

@@ -6,15 +6,12 @@ class FoodsController < ApplicationController
 
   def new
     @food = Food.new
+    @food.foodstuffs.build
+    @food.recipes.build
   end
 
   def create
-    @food = Food.new(user_id: current_user.id,
-                    food_name: food_params[:food_name],
-                    image: food_params[:image],
-                    text: food_params[:text],
-                    material: food_params[:material],
-                    category_id: food_params[:category_id])
+    @food = Food.new(food_params)
     if @food.save
       redirect_to new_after_path
     else
@@ -24,6 +21,8 @@ class FoodsController < ApplicationController
 
   def show
     @food = Food.find(params[:id])
+    @foodstuffs = Foodstuff.where(food_id: params[:id])
+    @recipes = Recipe.where(food_id: params[:id])
   end
 
   def destroy
@@ -39,7 +38,8 @@ class FoodsController < ApplicationController
   private
 
   def food_params
-    params.require(:food).permit(:food_name, :image, :text, :material, :category_id)
+    params.require(:food).permit(:food_name, :image, :text, :category_id,
+                                [foodstuffs_attributes: [:id, :material, :amount]],
+                                [recipes_attributes: [:id ,:process]]).merge(user_id: current_user.id)
   end
-
 end
