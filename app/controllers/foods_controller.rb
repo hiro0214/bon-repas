@@ -6,6 +6,8 @@ class FoodsController < ApplicationController
 
   def new
     @food = Food.new
+    @food.foodstuffs.build
+    @food.recipes.build
   end
 
   def create
@@ -39,7 +41,9 @@ class FoodsController < ApplicationController
   private
 
   def food_params
-    params.require(:food).permit(:food_name, :image, :text, :material, :category_id)
+    params.require(:food).permit(:food_name, :image, :text, :material, :category_id,
+                                [foodstuffs_attributes: [:food_id, :material, :amount]],
+                                [recipes_attributes: [:food_id, :process]])
   end
 
 end
