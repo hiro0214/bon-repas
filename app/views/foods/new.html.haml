@@ -1,0 +1,14 @@
+%p 投稿ページ
+
+= form_for [@food] do |f|
+  %p 料理名
+  = f.text_field :food_name
+  %p 画像
+  = f.file_field :image
+  %p 工程
+  = f.text_field :text
+  %p 材料
+  = f.text_field :material
+  %p カテゴリー
+  = f.text_field :category_id
+  = f.submit "投稿する"

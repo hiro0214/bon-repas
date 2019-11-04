@@ -1,0 +1,62 @@
+= render "header"
+
+.main
+  .main__side
+    .main__side__search
+      %p 検索フォーム
+
+  .main__contents
+    .main__contents__top
+      %p カテゴリーA
+      = link_to "もっと見る", "#"
+
+    .main__contents__bottom
+      - @foods.each do |food|
+        .main__food
+          = image_tag food.image.url, class: "main__food__img"
+          .main__food__name
+            = link_to "#{food.food_name}", "foods/#{food.id}"
+
+    .main__contents__top
+      %p カテゴリーB
+      = link_to "もっと見る", "#"
+
+    .main__contents__bottom
+      .main__food
+        .main__food__img
+        .main__food__name
+          %p うどん
+      .main__food
+        .main__food__img
+        .main__food__name
+          %p うどん
+      .main__food
+        .main__food__img
+        .main__food__name
+          %p うどん
+      .main__food
+        .main__food__img
+        .main__food__name
+          %p うどん
+
+    .main__contents__top
+      %p カテゴリーC
+      = link_to "もっと見る", "#"
+
+    .main__contents__bottom
+      .main__food
+        .main__food__img
+        .main__food__name
+          %p そば
+      .main__food
+        .main__food__img
+        .main__food__name
+          %p そば
+      .main__food
+        .main__food__img
+        .main__food__name
+          %p そば
+      .main__food
+        .main__food__img
+        .main__food__name
+          %p そば

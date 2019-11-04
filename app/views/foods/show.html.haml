@@ -1,0 +1,14 @@
+= render "header"
+
+
+%p.title
+  = "#{@food.food_name}のページ"
+.show
+  %p 作り方
+  = @food.text
+
+  %p 材料
+  = @food.material
+
+  %p カテゴリー
+  = @food.category_id

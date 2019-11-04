@@ -1,0 +1,107 @@
+.top {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("top_img.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  &__title {
+    height: 100px;
+    width: 500px;
+    position: relative;
+    top: 260px;
+    left: 110px;
+    h1 {
+      font-size: 75px;
+      font-family: 'Zapfino',serif;
+      // font-family: 'Sacramento', cursive;
+    }
+  }
+}
+
+body {
+  background-image: url("back.gif");
+}
+
+header {
+  width: 100vw;
+  height: 90px;
+  background: rgb(250, 250, 250);
+}
+
+.header {
+  width: 70vw;
+  height: 90px;
+  margin: 0 auto;
+  &__top {
+    width: 100%;
+    height: 50px;
+  }
+  &__bottom {
+    width: 100%;
+    height: 40px;
+    &__sign {
+      display: flex;
+      float: right;
+    }
+  }
+}
+
+.main {
+  width: 100vw;
+  height: calc( 100% - 90px );
+  margin-top: 40px;
+  &__side {
+    width: 400px;
+    height: 100%;
+    float: left;
+    &__search {
+      width: 300px;
+      // height: calc( 100% - 40px); #あとでいる
+      height: 600px;
+      background: #fff;
+      margin: 0px auto;
+    }
+  }
+  &__contents {
+    width: calc( 98vw - 400px);
+    height: calc( 100% - 40px);
+    float: left;
+    background: #fff;
+    &__top {
+      width: 90%;
+      height: 36px;
+      border-bottom: solid 1px rgb(220, 220, 220);
+      margin: 20px auto 0;
+      display:flex;
+      justify-content: space-between;
+      p {
+        font-size: 24px;
+        font-weight: 600;
+      }
+    }
+    &__bottom {
+      width: 90%;
+      height: 320px;
+      margin: 20px auto 60px;
+      display: flex;
+    }
+  }
+
+  &__food {
+    width: 22%;
+    height: 300px;
+    margin: 10px;
+    border: solid 1px gray;
+    &__img {
+      width: 100%;
+      height: 250px;
+      background: rgb(72, 93, 161);
+    }
+    &__name {
+      width: 94%;
+      height: 48px;
+      margin: 0px auto;
+      overflow: hidden;
+    }
+  }
+}

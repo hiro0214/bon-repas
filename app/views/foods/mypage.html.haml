@@ -1,0 +1,10 @@
+%p
+= "#{@user.nickname}のマイページ"
+
+%p
+  = link_to "ログアウト", destroy_user_session_path, method: :delete
+
+%p 投稿したレシピ一覧
+- @foods.each do |f|
+  = f.food_name
+  = link_to "削除する", "/foods/#{f.id}", method: :delete
