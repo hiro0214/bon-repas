@@ -1,6 +1,5 @@
 = render "header"
 
-
 %p.title
   = "#{@food.food_name}のページ"
 .show
@@ -8,6 +7,15 @@
   = @food.text
 
   %p 材料
+  - @foodstuffs.each do |f|
+    = f.material
+    = f.amount
+    %br
 
   %p カテゴリー
   = @food.category_id
+
+  %p 工程
+  - @recipes.each do |r|
+    = r.process
+    %br

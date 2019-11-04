@@ -5,8 +5,19 @@
   = f.text_field :food_name
   %p 画像
   = f.file_field :image
-  %p 工程
+  %p 説明
   = f.text_field :text
   %p カテゴリー
   = f.text_field :category_id
+
+  = f.fields_for :foodstuffs do |fs|
+    = render 'foodstuff_fields', f: fs
+    .links
+      = link_to_add_association '＋別の材料を追加', f, :foodstuffs
+
+  = f.fields_for :recipes do |fs|
+    = render 'recipe_fields', f: fs
+    .links
+      = link_to_add_association '＋別の工程を追加', f, :recipes
+
   = f.submit "投稿する"
