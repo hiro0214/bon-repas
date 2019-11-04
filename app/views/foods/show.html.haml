@@ -1,21 +1,31 @@
 = render "header"
 
-%p.title
-  = "#{@food.food_name}のページ"
-.show
-  %p 作り方
-  = @food.text
+.detail
+  .detail__top
+    %h1
+      = "#{@food.food_name}のページ"
+    %p
+      = @food.text
+  .detail__middle
+    = image_tag @food.image.url, class: "detail__middle__img"
+    .detail__middle__stuffs
+      %table
+        %tr.detail__middle__stuffs__top
+          %th 材料
+          %th 分量
+        - @foodstuffs.each do |f|
+          %tr
+            %th.detail__middle__stuffs__left
+              = f.material
+            %th.detail__middle__stuffs__right
+              = f.amount
 
-  %p 材料
-  - @foodstuffs.each do |f|
-    = f.material
-    = f.amount
-    %br
 
-  %p カテゴリー
-  = @food.category_id
-
-  %p 工程
-  - @recipes.each do |r|
-    = r.process
-    %br
+  .detail__bottom
+    %p 作り方
+    .detail__bottom__recipe
+      - @recipes.each_with_index do |f,i|
+        .detail__bottom__recipe__list
+          = i + 1
+          %br
+          = f.process
