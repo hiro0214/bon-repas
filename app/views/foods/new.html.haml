@@ -1,8 +1,8 @@
 = render "header"
 
 .new
-  %h1 レシピ新規投稿
   .new__form
+    %h1 レシピ新規投稿
     = form_for [@food] do |f|
       .new__input
         = f.label "料理名"

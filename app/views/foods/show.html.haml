@@ -26,6 +26,7 @@
     .detail__bottom__recipe
       - @recipes.each_with_index do |f,i|
         .detail__bottom__recipe__list
-          = i + 1
-          %br
-          = f.process
+          %span
+            = i + 1
+          %p
+            = f.process

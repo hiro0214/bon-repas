@@ -12,7 +12,7 @@
               %span いいね！一覧
             = link_to new_food_path do
               %span 投稿する
-            = link_to "mypage/#{current_user.id}" do
+            = link_to "/mypage/#{current_user.id}" do
               %span マイページ
         - else
           .header__bottom__sign_up

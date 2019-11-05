@@ -3,6 +3,7 @@
   height: 100%;
   margin:40px auto;
   background:#ffffff;
+  border:solid 1px rgb(200, 200, 200);
   &__top {
     width:100%;
     padding:0 25px;
@@ -64,31 +65,26 @@
       color:rgb(255, 180, 94);
     }
     &__recipe {
+      margin-left:60px;
       flex-wrap: wrap;
       display:flex;
       &__list {
-        width:32%;
-        height:300px;
-        margin:5px;
-        border:solid 1px;
+        width:20%;
+        min-height:150px;
+        margin:20px;
+        padding:5px 10px;
+        background:rgb(255, 230, 183);
+        border:solid 1px rgb(207, 207, 207);
+        span {
+          font-size:20px;
+          font-weight:600;
+          color:rgb(255, 102, 0);
+        }
+        p {
+          color:rgb(100, 100, 100);
+          font-weight:600;
+        }
       }
     }
-  }
-}
-
-
-
-
-
-
-.title {
-  font-size:24px;
-  font-weight:600;
-}
-
-.show {
-  p {
-    color:red;
-    font-size:20px;
   }
 }
