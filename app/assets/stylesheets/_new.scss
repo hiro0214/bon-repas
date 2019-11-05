@@ -1,0 +1,90 @@
+.new {
+  width:50vw;
+  height:100%;
+  background:#fff;
+  margin: 40px auto 40px;
+  h1 {
+    font-size:26px;
+    font-weight:600;
+    text-align:center;
+    padding:20px;
+    border-bottom:solid 1px rgb(200, 200, 200);
+  }
+  &__form {
+    padding:0px 40px 60px;
+  }
+  &__input {
+    margin: 40px 0;
+    label {
+      font-size:19px;
+      font-weight: 600;
+    }
+    span {
+      background:rgb(255, 57, 57);
+      color:#fff;
+      font-size:12px;
+      padding:2px 5px;
+      margin-left: 5px;
+      font-weight: 600;
+    }
+    input {
+      width:80%;
+      height:50px;
+      margin:10px auto 0;
+      display:block;
+      border:solid 1px rgb(202, 202, 202);
+      border-radius:5px;
+    }
+    .links {
+      a {
+        color:rgb(0, 132, 255);
+        font-size:15px;
+      }
+    }
+  }
+  &__submit {
+    width:300px;
+    height:50px;
+    background:rgb(255, 142, 49);
+    color:#fff;
+    display:block;
+    margin: 0 auto;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+    &:hover {
+      background:#fff;
+      border:solid 2px rgb(255, 142, 49);
+      color: rgb(255, 142, 49);
+      transition: .4s;
+    }
+  }
+}
+
+
+.foodstuff_input {
+  display:flex;
+  padding-left:40px;
+  label {
+    font-size:16px;
+    margin:0 10px 0 20px;
+  }
+  input {
+    width:200px;
+    margin: 0;
+  }
+}
+
+.recipe_input {
+  display:flex;
+  padding-left:80px;
+  input {
+    width:80%;
+    margin:0;
+  }
+}
+
+.remove-btn {
+  color:red;
+  font-size:14px;
+}

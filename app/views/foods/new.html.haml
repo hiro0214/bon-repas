@@ -1,23 +1,43 @@
-%p 投稿ページ
+= render "header"
 
-= form_for [@food] do |f|
-  %p 料理名
-  = f.text_field :food_name
-  %p 画像
-  = f.file_field :image
-  %p 説明
-  = f.text_field :text
-  %p カテゴリー
-  = f.text_field :category_id
+.new
+  %h1 レシピ新規投稿
+  .new__form
+    = form_for [@food] do |f|
+      .new__input
+        = f.label "料理名"
+        %span 必須
+        = f.text_field :food_name
 
-  = f.fields_for :foodstuffs do |fs|
-    = render 'foodstuff_fields', f: fs
-    .links
-      = link_to_add_association '＋別の材料を追加', f, :foodstuffs
+      .new__input
+        = f.label "画像"
+        %span 必須
+        = f.file_field :image
 
-  = f.fields_for :recipes do |fs|
-    = render 'recipe_fields', f: fs
-    .links
-      = link_to_add_association '＋別の工程を追加', f, :recipes
+      .new__input
+        = f.label "説明"
+        %span 必須
+        = f.text_field :text
 
-  = f.submit "投稿する"
+      .new__input
+        = f.label "カテゴリー"
+        %span 必須
+        = f.text_field :category_id
+
+      .new__input
+        = f.label "食材"
+        %span 必須
+        = f.fields_for :foodstuffs do |fs|
+          = render 'foodstuff_fields', f: fs
+        .links
+          = link_to_add_association '＋次の材料を追加', f, :foodstuffs
+
+      .new__input
+        = f.label "工程"
+        %span 必須
+        = f.fields_for :recipes do |r|
+          = render 'recipe_fields', f: r
+        .links
+          = link_to_add_association '＋次の工程を追加', f, :recipes
+
+      = f.submit "投稿する", class: "new__submit"

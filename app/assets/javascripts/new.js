@@ -1,9 +1,9 @@
 $(document).on('turbolinks:load', function(){
 
-  if ($('.foodstuffs_nested-fields').length == 1) {
+  if ($('.foodstuff_input').length == 1) {
   　$('.remove-btn').hide();
   }
-  if ($('.recipe_nested-fields').length == 1) {
+  if ($('.recipe_input').length == 1) {
   　$('.remove-btn').hide();
   }
 });
