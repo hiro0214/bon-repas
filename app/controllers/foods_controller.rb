@@ -36,8 +36,15 @@ class FoodsController < ApplicationController
   end
 
   def search
-    @input = params[:search]
-    @foods = Food.where("food_name LIKE(?) or text LIKE(?)", "%#{@input}%", "%#{@input}%")
+    if params[:search] != nil
+      @input = params[:search]
+      @foods = Food.where("food_name LIKE(?) or text LIKE(?)", "%#{@input}%", "%#{@input}%").order("created_at desc")
+    elsif params[:material] != nil
+      @input = params[:material]
+      material = Foodstuff.where("material LIKE(?)", "%#{@input}%")
+      food_id = material.map{ |m| m.food_id}.uniq
+      @foods = Food.where(id: food_id).order("created_at desc")
+    end
   end
 
   private

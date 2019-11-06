@@ -95,6 +95,7 @@ header {
       width: 300px;
       // height: calc( 100% - 40px); #あとでいる
       height: 600px;
+      border:solid 1px rgb(255, 123, 0);
       background: #fff;
       margin: 0px auto;
     }
@@ -105,6 +106,7 @@ header {
     margin-bottom:60px;
     float: left;
     background: #fff;
+    border:solid 1px rgb(255, 123, 0);
     &__top {
       width: 90%;
       height: 36px;
@@ -119,15 +121,15 @@ header {
     }
     &__bottom {
       width: 90%;
-      height: 320px;
+      min-height: 320px;
       margin: 20px auto 60px;
       display: flex;
+      flex-wrap: wrap;
     }
   }
 
   &__food {
     width: 31%;
-    height: 300px;
     margin: 10px;
     border: solid 1px rgb(177, 177, 177);
     position:relative;
@@ -135,13 +137,12 @@ header {
       background:#fff;
       color:rgb(253, 138, 6);
       width:250px;
-      height:80px;
+      min-height:80px;
       padding:10px;
       font-size:14px;
       border:solid 1px rgb(255, 123, 0);
       border-radius: 5px;
       opacity:0;
-      overflow:hidden;
       position:absolute;
       top:-85px;
       left:20px;
@@ -153,7 +154,8 @@ header {
     }
     &__name {
       width: 94%;
-      height: 48px;
+      height: 55px;
+      color: rgb(125, 148, 10);
       margin: 0px auto;
       overflow: hidden;
     }
@@ -161,4 +163,8 @@ header {
       border:solid 1px rgb(0, 110, 255);
     }
   }
+}
+
+.search__food {
+  margin-bottom:60px;
 }
