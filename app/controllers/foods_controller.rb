@@ -35,6 +35,11 @@ class FoodsController < ApplicationController
     @foods = Food.where(user_id: current_user.id)
   end
 
+  def search
+    @input = params[:search]
+    @foods = Food.where("food_name LIKE(?) or text LIKE(?)", "%#{@input}%", "%#{@input}%")
+  end
+
   private
 
   def food_params

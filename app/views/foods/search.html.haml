@@ -1,0 +1,25 @@
+= render "header"
+
+.main
+  .main__side
+    .main__side__search
+      %p 検索フォーム
+      = form_with uyl: search_path, method: :get, local: true do |f|
+        = f.text_field :search, placeholder: "何を検索しますか？"
+        = button_tag type: "submit" do
+          %p 検索
+
+  .main__contents
+    .main__contents__top
+      %p
+        = "#{@input}の検索結果"
+
+    .main__contents__bottom
+      - @foods.each do |food|
+        .main__food
+          = link_to "foods/#{food.id}" do
+            %p
+              = food.text
+            = image_tag food.image.url, class: "main__food__img"
+            .main__food__name
+              = food.food_name

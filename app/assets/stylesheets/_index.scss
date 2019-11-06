@@ -11,8 +11,9 @@
     top: 260px;
     left: 110px;
     h1 {
-      font-size: 75px;
-      font-family: 'Zapfino',serif;
+      font-size: 100px;
+      font-family: 'Snell Roundhand',sans-serif;
+      // font-family: 'Zapfino',serif;
       // font-family: 'Sacramento', cursive;
     }
   }
@@ -24,24 +25,60 @@ body {
 
 header {
   width: 100vw;
-  height: 90px;
-  background: rgb(250, 250, 250);
+  height:110px;
+  background-image: url("bg.png");
 }
 
 .header {
   width: 70vw;
-  height: 90px;
+  height: 110px;
   margin: 0 auto;
+  color: #fff;
   &__top {
     width: 100%;
-    height: 50px;
+    height:40px;
+    a {
+      color: #fff;
+      font-size: 70px;
+      font-family: 'Snell Roundhand',sans-serif;
+      &:hover {
+        transition:.4s;
+        color:#5e4a2d;
+      }
+    }
   }
   &__bottom {
     width: 100%;
-    height: 40px;
+    height: 50px;
     &__sign {
-      display: flex;
       float: right;
+      ul {
+        display:flex;
+        li {
+          text-align:center;
+          margin-left:30px;
+          p {
+            font-size:30px;
+            color: #fff;
+            font-family: 'Snell Roundhand',sans-serif;
+            letter-spacing:0.1rem;
+          }
+          span {
+            color: #fff;
+            font-size:9px;
+            margin-left:10px;
+            font-family: 'Snell Roundhand',sans-serif;
+            letter-spacing:0.2rem;
+          }
+          &:hover {
+            cursor:pointer;
+            p,span {
+              color:#5e4a2d;
+              transition:.4s;
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -92,7 +129,23 @@ header {
     width: 31%;
     height: 300px;
     margin: 10px;
-    border: solid 1px gray;
+    border: solid 1px rgb(177, 177, 177);
+    position:relative;
+    p {
+      background:#fff;
+      color:rgb(253, 138, 6);
+      width:250px;
+      height:80px;
+      padding:10px;
+      font-size:14px;
+      border:solid 1px rgb(255, 123, 0);
+      border-radius: 5px;
+      opacity:0;
+      overflow:hidden;
+      position:absolute;
+      top:-85px;
+      left:20px;
+    }
     &__img {
       width: 100%;
       height: 250px;
@@ -103,6 +156,9 @@ header {
       height: 48px;
       margin: 0px auto;
       overflow: hidden;
+    }
+    &:hover {
+      border:solid 1px rgb(0, 110, 255);
     }
   }
 }

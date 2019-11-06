@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :foods
   get "mypage/:id" => "foods#mypage"
+  get "search" => "foods#search"
   get "new_after" => "foods#new_after"
   get "top" => "foods#top"
 end
