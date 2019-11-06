@@ -96,6 +96,7 @@ header {
       // height: calc( 100% - 40px); #あとでいる
       height: 600px;
       border:solid 1px rgb(255, 123, 0);
+      border-radius:5px;
       background: #fff;
       margin: 0px auto;
     }
@@ -107,10 +108,11 @@ header {
     float: left;
     background: #fff;
     border:solid 1px rgb(255, 123, 0);
+    border-radius:5px;
     &__top {
       width: 90%;
       height: 36px;
-      border-bottom: solid 1px rgb(220, 220, 220);
+      border-bottom: solid 1px #ffdda9;
       margin: 20px auto 0;
       display:flex;
       justify-content: space-between;
@@ -127,11 +129,11 @@ header {
       flex-wrap: wrap;
     }
   }
-
   &__food {
     width: 31%;
     margin: 10px;
-    border: solid 1px rgb(177, 177, 177);
+    border: solid 1px rgb(222, 213, 192);
+    border-radius:5px;
     position:relative;
     p {
       background:#fff;

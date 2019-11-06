@@ -27,6 +27,8 @@
       .new__input
         = f.label "食材"
         %span 必須
+        .new__serving
+          = f.select :servings, [["1人前","1人前"], ["2人前","2人前"], ["3人前","3人前"], ["4人前","4人前"], ["5人前","5人前"], ["6人前","6人前"], ["7人前","7人前"]], {}, {class: "new__serving"}
         = f.fields_for :foodstuffs do |fs|
           = render 'foodstuff_fields', f: fs
         .links

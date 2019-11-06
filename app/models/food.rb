@@ -11,5 +11,6 @@ class Food < ApplicationRecord
   validates :image ,presence: true
   validates :text ,presence: true
   validates :category_id ,presence: true
+  validates :servings ,presence: true
 
 end

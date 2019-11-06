@@ -5,7 +5,8 @@
   margin: 40px auto 40px;
   &__form {
     padding:0px 40px 60px;
-    border:solid 1px rgb(200, 200, 200);
+    border:solid 1px rgb(255, 123, 0);
+    border-radius: 5px;
   }
   h1 {
     font-size:26px;
@@ -43,6 +44,16 @@
       }
     }
   }
+  &__serving {
+    display:flex;
+    margin: 5px 20px;
+    select {
+      width:100px;
+      height:25px;
+      border:solid 1px rgb(170, 170, 170);
+      font-size:15px;
+    }
+  }
   &__submit {
     width:300px;
     height:50px;
@@ -60,8 +71,12 @@
       transition: .4s;
     }
   }
+  &__after {
+    width:100vw;
+    height:100vh;
+    background:#fff;
+  }
 }
-
 
 .foodstuff_input {
   display:flex;
@@ -88,4 +103,6 @@
 .remove-btn {
   color:red;
   font-size:14px;
+  position:relative;
+  top:30px;
 }

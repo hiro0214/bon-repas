@@ -12,7 +12,8 @@
       %table
         %tr.detail__middle__stuffs__top
           %th 材料
-          %th 分量
+          %th
+            = "分量(#{@food.servings})"
         - @foodstuffs.each do |f|
           %tr
             %th.detail__middle__stuffs__left
