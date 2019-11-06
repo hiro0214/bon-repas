@@ -16,10 +16,15 @@
             = "分量(#{@food.servings})"
         - @foodstuffs.each do |f|
           %tr
-            %th.detail__middle__stuffs__left
-              = f.material
-            %th.detail__middle__stuffs__right
-              = f.amount
+            - if f.amount == "."
+              %th.detail__middle__stuffs__left.emphasis
+                = "-----#{f.material}-----"
+              %th.detail__middle__stuffs__right
+            - else
+              %th.detail__middle__stuffs__left
+                = f.material
+              %th.detail__middle__stuffs__right
+                = f.amount
 
 
   .detail__bottom
