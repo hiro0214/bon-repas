@@ -37,13 +37,15 @@ header {
   &__top {
     width: 100%;
     height:40px;
-    a {
+    p {
       color: #fff;
+      width:400px;
       font-size: 70px;
       font-family: 'Snell Roundhand',sans-serif;
       &:hover {
         transition:.4s;
         color:#5e4a2d;
+        cursor:pointer;
       }
     }
   }
@@ -81,6 +83,78 @@ header {
       }
     }
   }
+}
+
+.mid {
+  position:relative;
+}
+
+.middle {
+  width:90vw;
+  height:100%;
+  margin:50px auto 0;
+  background:#fff;
+  border:solid 1px rgb(255, 123, 0);
+  border-radius: 5px;
+  display:flex;
+  &__list {
+    width:33%;
+    margin: 0 auto;
+    padding:10px;
+    > p {
+      padding-left:10px;
+      width:100%;
+      min-height:50px;
+      > a {
+        color: rgb(125, 148, 10);
+      }
+    }
+    &__bottom {
+      padding-left:10px;
+      p {
+        display:inline;
+        font-weight:600;
+        + span {
+          color:rgb(0, 132, 255);
+          font-size:18px;
+        }
+      }
+      .middle__good {
+        float:right;
+      }
+    }
+  }
+  &__image {
+    width:100%;
+    height:300px;
+    border: solid 1px rgb(222, 213, 192);
+  }
+}
+
+.food_1 {
+  opacity:1;
+  position:relative;
+  z-index:100;
+}
+
+.food_2 {
+  opacity:0;
+  position:absolute;
+  top:-50px;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:1;
+}
+
+.food_3 {
+  opacity:0;
+  position:absolute;
+  top:-50px;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:1;
 }
 
 .main {

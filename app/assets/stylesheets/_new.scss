@@ -44,6 +44,12 @@
       }
     }
   }
+  &__category {
+    width:50%;
+    height:50px;
+    display:block;
+    margin:10px auto 0;
+  }
   &__serving {
     display:flex;
     margin: 5px 20px;

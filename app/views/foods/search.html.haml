@@ -3,14 +3,14 @@
 .main
   .main__side
     .main__side__search
-      %p 検索フォーム
+      %h1 検索フォーム
       %p 料理名で検索
       = form_with url: search_path, method: :get ,local: true do |f|
-        = f.text_field :search, placeholder: "何を検索しますか？"
+        = f.text_field :search, placeholder: "何を検索しますか？", class: "search__input"
         = f.submit "検索"
       %p 食材で検索
       = form_with url: search_path, method: :get ,local: true do |f|
-        = f.text_field :material, placeholder: "何で検索しますか？"
+        = f.text_field :material, placeholder: "何で検索しますか？", class: "search__input"
         = f.submit "検索"
 
   .main__contents

@@ -1,7 +1,12 @@
 class FoodsController < ApplicationController
 
   def index
-    @foods = Food.limit(3).order("created_at desc")
+    @foods_1 = Food.order("RAND()").limit(3)
+    @foods_2 = Food.order("RAND()").limit(3).where.not(id: @foods_1.map{|f| f.id})
+    @foods_3 = Food.order("RAND()").limit(3).where.not(id: @foods_1.map{|f| f.id}).where.not(id: @foods_2.map{|f| f.id})
+    @ja_foods = Food.where(category_id: "和食").limit(3).order("created_at desc")
+    @we_foods = Food.where(category_id: "洋食").limit(3).order("created_at desc")
+    @side_foods = Food.where(category_id: "おかず").limit(3).order("created_at desc")
   end
 
   def new
@@ -50,7 +55,7 @@ class FoodsController < ApplicationController
   private
 
   def food_params
-    params.require(:food).permit(:food_name, :image, :text, :category_id, :servings,
+    params.require(:food).permit(:food_name, :image, :text, :category_id, :servings, :advice,
                                 [foodstuffs_attributes: [:id, :material, :amount]],
                                 [recipes_attributes: [:id ,:process]]).merge(user_id: current_user.id)
   end

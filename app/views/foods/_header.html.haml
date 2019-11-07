@@ -1,7 +1,8 @@
 %header
   .header
     .header__top
-      = link_to "Bon repas", "/"
+      %p#title Bon repas
+      -# = link_to "Bon repas", root_path
     .header__bottom
       .header__bottom__sign
         - if user_signed_in?

@@ -1,5 +1,49 @@
 = render "header"
 
+.mid#index
+  .middle.food_1
+    - @foods_1.each do |food|
+      .middle__list
+        = link_to "foods/#{food.id}" do
+          = image_tag food.image.url, class: "middle__image"
+        %p
+          = link_to "#{food.food_name}", "foods/#{food.id}"
+        .middle__list__bottom
+          %p カテゴリー :
+          %span
+            = "#{food.category_id}"
+          %span.middle__good
+            = "いいね数🧡#{food.goods_count}"
+
+  .middle.food_2
+    - @foods_2.each do |food|
+      .middle__list
+        = link_to "foods/#{food.id}" do
+          = image_tag food.image.url, class: "middle__image"
+        %p
+          = link_to "#{food.food_name}", "foods/#{food.id}"
+        .middle__list__bottom
+          %p カテゴリー :
+          %span
+            = "#{food.category_id}"
+          %span.middle__good
+            = "いいね数🧡#{food.goods_count}"
+
+  .middle.food_3
+    - @foods_3.each do |food|
+      .middle__list
+        = link_to "foods/#{food.id}" do
+          = image_tag food.image.url, class: "middle__image"
+        %p
+          = link_to "#{food.food_name}", "foods/#{food.id}"
+        .middle__list__bottom
+          %p カテゴリー :
+          %span
+            = "#{food.category_id}"
+          %span.middle__good
+            = "いいね数🧡#{food.goods_count}"
+
+
 .main
   .main__side
     .main__side__search
@@ -16,14 +60,15 @@
         -# ランダムで検索
         -# 気分で検索
         -# 選択肢で検索
+        -# いいね数が多い順
+        -# 最新順
 
   .main__contents
     .main__contents__top
-      %p カテゴリーA
+      %p 和食のレシピ一覧
       = link_to "もっと見る", "#"
-
     .main__contents__bottom
-      - @foods.each do |food|
+      - @ja_foods.each do |food|
         .main__food
           %p
             = food.text
@@ -33,37 +78,27 @@
               = food.food_name
 
     .main__contents__top
-      %p カテゴリーB
+      %p 洋食のレシピ一覧
       = link_to "もっと見る", "#"
-
     .main__contents__bottom
-      .main__food
-        .main__food__img
-        .main__food__name
-          %p うどん
-      .main__food
-        .main__food__img
-        .main__food__name
-          %p うどん
-      .main__food
-        .main__food__img
-        .main__food__name
-          %p うどん
+      - @we_foods.each do |food|
+        .main__food
+          %p
+            = food.text
+          = link_to "foods/#{food.id}" ,class: "food__list" do
+            = image_tag food.image.url, class: "main__food__img"
+            .main__food__name
+              = food.food_name
 
     .main__contents__top
-      %p カテゴリーC
+      %p おかずのレシピ一覧
       = link_to "もっと見る", "#"
-
     .main__contents__bottom
-      .main__food
-        .main__food__img
-        .main__food__name
-          %p そば
-      .main__food
-        .main__food__img
-        .main__food__name
-          %p そば
-      .main__food
-        .main__food__img
-        .main__food__name
-          %p そば
+      - @side_foods.each do |food|
+        .main__food
+          %p
+            = food.text
+          = link_to "foods/#{food.id}" ,class: "food__list" do
+            = image_tag food.image.url, class: "main__food__img"
+            .main__food__name
+              = food.food_name

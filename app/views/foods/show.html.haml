@@ -18,6 +18,7 @@
           %tr
             - if f.amount == "."
               %th.detail__middle__stuffs__left.emphasis
+                %br
                 = "-----#{f.material}-----"
               %th.detail__middle__stuffs__right
             - else
@@ -36,5 +37,11 @@
             = i + 1
           %p
             = f.process
+
+    - if @food.advice
+      %p コツ・ポイント
+      .detail__bottom__point
+        %p
+          = @food.advice
 
 %p 関連するレシピ
