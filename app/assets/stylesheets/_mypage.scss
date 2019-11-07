@@ -1,0 +1,90 @@
+.mypage {
+  width:100vw;
+  height:calc( 100vh - 90px);
+  &__side {
+    width:400px;
+    height:100%;
+    float:left;
+    padding:40px;
+    ul {
+      background:#fff;
+      width:250px;
+      float:right;
+      border:solid 1px rgb(255, 123, 0);
+      border-radius: 5px;
+      border-bottom:none;
+      li {
+        font-size:14px;
+        padding:12px;
+        border-bottom:solid 1px rgb(255, 172, 94);
+      }
+    }
+  }
+  &__main {
+    float:right;
+    width:calc( 100% - 400px);
+    height:100%;
+    padding:40px;
+    &__list {
+      width:80%;
+      height:100%;
+      background:#fff;
+      border:solid 1px rgb(255, 123, 0);
+      border-radius:5px;
+      padding:0 30px;
+      overflow:scroll;
+      > p {
+        font-size:20px;
+        font-weight:600;
+        padding:20px 0 10px 20px;
+        border-bottom:solid 1px rgb(167, 166, 166);
+      }
+      .list__food {
+        padding:20px;
+        display:flex;
+        &__img {
+          width:350px;
+          height:350px;
+          border: solid 1px rgb(222, 213, 192);
+          border-radius: 5px;
+        }
+        &__info {
+          padding-left:20px;
+          position:relative;
+          > p {
+            width:250px;
+            min-height:50px;
+            color: rgb(125, 148, 10);
+            border: solid 1px rgb(222, 213, 192);
+            border-radius:5px;
+            padding:5px;
+          }
+          &__btn {
+            width:280px;
+            height:50px;
+            position:absolute;
+            bottom:0;
+            > a {
+              background:rgb(255, 158, 48);
+              color: #fff;
+              font-weight:600;
+              line-height:50px;
+              border-radius: 5px;
+              text-align:center;
+              display:inline-block;
+              margin-right:10px;
+              width:120px;
+              height:50px;
+              &:hover {
+                background:#fff;
+                border:solid 1px rgb(255, 158, 48);
+                color:rgb(255, 158, 48);
+                transition: .4s;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

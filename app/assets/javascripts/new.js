@@ -7,7 +7,7 @@ $(document).on('turbolinks:load', function(){
   　$('.remove-btn').hide();
   }
 
-  $("#new_food").on("submit" ,function (){
+  $("#new_food, .edit_food").on("submit" ,function (){
     if (confirm("投稿してもよろしいですか？")){
     } else {
       return false

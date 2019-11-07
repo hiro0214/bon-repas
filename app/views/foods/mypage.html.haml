@@ -1,12 +1,25 @@
 =render "header"
 
-%p
-= "#{@user.nickname}のマイページ"
+.mypage
+  .mypage__side
+    %ul
+      %li マイページ
+      %li
+        = link_to "投稿する", new_food_path
+      %li いいね一覧
+      %li
+        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "signout"
 
-%p
-  = link_to "ログアウト", destroy_user_session_path, method: :delete
-
-%p 投稿したレシピ一覧
-- @foods.each do |f|
-  = f.food_name
-  = link_to "削除する", "/foods/#{f.id}", method: :delete
+  .mypage__main
+    .mypage__main__list
+      %p
+        = "#{current_user.nickname}の投稿一覧"
+      - @foods.each do |food|
+        .list__food
+          = image_tag food.image.url, class: "list__food__img"
+          .list__food__info
+            %p
+              = food.food_name
+            .list__food__info__btn
+              = link_to "編集する", edit_food_path(food.id), class: "info__btn"
+              = link_to "削除する", "/foods/#{food.id}", method: :delete, class: "info__btn delete__btn"

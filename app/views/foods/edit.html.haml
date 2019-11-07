@@ -1,0 +1,49 @@
+= render "header"
+
+.new
+  .new__form
+    %h1 レシピ新規投稿
+    = form_for [@food] do |f|
+      .new__input
+        = f.label "料理名"
+        %span 必須
+        = f.text_field :food_name, placeholder: "  料理名を入力してください"
+
+      .new__input
+        = f.label "画像"
+        %span 必須
+        = f.file_field :image, placeholder: "  画像を添付してください"
+
+      .new__input
+        = f.label "説明"
+        %span 必須
+        = f.text_field :text, placeholder: "  料理の説明文を入力してください"
+
+      .new__input
+        = f.label "カテゴリー"
+        %span 必須
+        = f.select :category_id, [["カテゴリーを選択してください",""], ["和食","和食"], ["洋食","洋食"], ["中華","中華"], ["弁当","弁当"], ["おかず","おかず"]], {}, {class: "new__category"}
+
+      .new__input
+        = f.label "食材"
+        %span 必須
+        .new__serving
+          = f.select :servings, [["1人前","1人前"], ["2人前","2人前"], ["3人前","3人前"], ["4人前","4人前"], ["5人前","5人前"], ["6人前","6人前"], ["7人前","7人前"]], {}, {class: "new__serving"}
+        = f.fields_for :foodstuffs do |fs|
+          = render 'foodstuff_fields', f: fs
+        .links
+          = link_to_add_association '＋次の材料を追加', f, :foodstuffs
+
+      .new__input
+        = f.label "工程"
+        %span 必須
+        = f.fields_for :recipes do |r|
+          = render 'recipe_fields', f: r
+        .links
+          = link_to_add_association '＋次の工程を追加', f, :recipes
+
+      .new__input
+        = f.label "コツ・ポイント"
+        = f.text_field :advice
+
+      = f.submit "投稿する", class: "new__submit"

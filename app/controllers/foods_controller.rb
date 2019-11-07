@@ -24,6 +24,19 @@ class FoodsController < ApplicationController
     end
   end
 
+  def edit
+    @food = Food.find(params[:id])
+  end
+
+  def update
+    @food = Food.find(params[:id])
+    if @food.update(food_params)
+      redirect_to update_after_path
+    else
+      render action: :edit
+    end
+  end
+
   def show
     @food = Food.find(params[:id])
     @foodstuffs = Foodstuff.where(food_id: params[:id])
@@ -36,8 +49,7 @@ class FoodsController < ApplicationController
   end
 
   def mypage
-    @user = User.find(current_user.id)
-    @foods = Food.where(user_id: current_user.id)
+    @foods = Food.where(user_id: current_user.id).order("created_at desc")
   end
 
   def search
