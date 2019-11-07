@@ -1,0 +1,15 @@
+.main__side
+  .main__side__search
+    %h1 検索フォーム
+    %p 料理名で検索
+    = form_with url: search_path, method: :get ,local: true do |f|
+      = f.text_field :search, placeholder: "何を検索しますか？", class: "search__input"
+      = f.submit "検索"
+    %p 食材で検索
+    = form_with url: search_path, method: :get ,local: true do |f|
+      = f.text_field :material, placeholder: "何で検索しますか？", class: "search__input"
+      = f.submit "検索"
+    %p カテゴリーで検索
+    = form_with url: "/more/:id", method: :get ,local: true do |f|
+      = f.select :category_id, [["カテゴリーを選択してください",""], ["和食",1], ["洋食",2], ["中華",3], ["弁当",4], ["おかず",5]], {}, {class: "search__input"}
+      = f.submit "検索"
