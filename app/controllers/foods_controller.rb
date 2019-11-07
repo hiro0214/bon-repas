@@ -52,6 +52,19 @@ class FoodsController < ApplicationController
     end
   end
 
+  def more
+    if params[:id] == "1"
+      @category = "和食"
+      @foods = Food.where(category_id: "和食").order("created_at desc")
+    elsif params[:id] == "2"
+      @category = "洋食"
+      @foods = Food.where(category_id: "洋食").order("created_at desc")
+    elsif params[:id] == "5"
+      @category = "おかず"
+      @foods = Food.where(category_id: "おかず").order("created_at desc")
+    end
+  end
+
   private
 
   def food_params

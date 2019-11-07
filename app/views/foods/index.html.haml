@@ -66,7 +66,7 @@
   .main__contents
     .main__contents__top
       %p 和食のレシピ一覧
-      = link_to "もっと見る", "#"
+      = link_to "もっと見る", "more/1"
     .main__contents__bottom
       - @ja_foods.each do |food|
         .main__food
@@ -79,7 +79,7 @@
 
     .main__contents__top
       %p 洋食のレシピ一覧
-      = link_to "もっと見る", "#"
+      = link_to "もっと見る", "more/2"
     .main__contents__bottom
       - @we_foods.each do |food|
         .main__food
@@ -92,7 +92,7 @@
 
     .main__contents__top
       %p おかずのレシピ一覧
-      = link_to "もっと見る", "#"
+      = link_to "もっと見る", "more/5"
     .main__contents__bottom
       - @side_foods.each do |food|
         .main__food
