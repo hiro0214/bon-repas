@@ -1,20 +1,11 @@
-=render "header"
+= render "foods/header"
 
 .mypage
-  .mypage__side
-    %ul
-      %li
-        = link_to "マイページ", "/mypage/#{current_user.id}"
-      %li
-        = link_to "投稿する", new_food_path
-      %li
-        = link_to "いいね一覧"
-      %li
-        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "signout"
+  = render "side_bar"
 
   .mypage__main
     .mypage__main__list
-      %p
+      %h1
         = "#{current_user.nickname}の投稿一覧"
       - @foods.each do |food|
         .list__food

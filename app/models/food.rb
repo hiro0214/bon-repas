@@ -2,6 +2,12 @@ class Food < ApplicationRecord
 
   has_many :foodstuffs, dependent: :destroy
   has_many :recipes, dependent: :destroy
+  has_many :goods, dependent: :destroy
+
+  def good_user(user_id)
+    goods.find_by(user_id: user_id)
+  end
+
   accepts_nested_attributes_for :foodstuffs, allow_destroy: true
   accepts_nested_attributes_for :recipes, allow_destroy: true
 

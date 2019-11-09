@@ -1,0 +1,25 @@
+= render "foods/header"
+
+.mypage
+  = render "side_bar"
+
+  .mypage__main
+    .mypage__main__list
+      %h1
+        = "#{current_user.nickname}のいいね履歴"
+      - if @foods.length != 0
+        - @foods.each do |food|
+          .list__food
+            = image_tag food.image.url, class: "list__food__img"
+            .list__food__info
+              %h1 料理名
+              %p
+                = food.food_name
+              %h1 説明
+              %p
+                = food.text
+              .list__food__info__btn
+                = link_to "詳細ページに行く", "/foods/#{food.id}", class: "info__btn"
+
+      - else
+        %p.no__list いいね履歴はまだありません。

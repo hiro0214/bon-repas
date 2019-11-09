@@ -1,0 +1,10 @@
+.mypage__side
+  %ul
+    %li
+      = link_to "マイページ", "/user/#{current_user.id}"
+    %li
+      = link_to "投稿する", new_food_path
+    %li
+      = link_to "いいね一覧", user_good_path(current_user.id)
+    %li
+      = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "signout"
