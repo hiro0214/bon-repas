@@ -44,4 +44,8 @@
         %p
           = @food.advice
 
+      .detail__bottom__good
+        = render partial: "good/good", locals: {food: @food, good: @good}
+
+
 %p 関連するレシピ

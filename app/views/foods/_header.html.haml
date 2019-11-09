@@ -2,7 +2,6 @@
   .header
     .header__top
       %p#title Bon repas
-      -# = link_to "Bon repas", root_path
     .header__bottom
       .header__bottom__sign
         - if user_signed_in?
@@ -12,7 +11,7 @@
                 %p Recipe
                 %span 投稿する
             %li
-              = link_to "/mypage/#{current_user.id}" do
+              = link_to "/user/#{current_user.id}" do
                 %p Mypage
                 %span マイページ
         - else

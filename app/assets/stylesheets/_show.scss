@@ -102,8 +102,53 @@
       color:rgb(100, 100, 100);
       font-weight:600;
     }
+    &__good {
+      width:100px;
+      height:50px;
+      margin-top:40px;
+    }
   }
 }
+
+.good__btn {
+  width:100px;
+  height:25px;
+  line-height:25px;
+}
+
+.no__good__btn {
+  width:100px;
+  height:25px;
+  line-height:20px;
+  border:solid 1px gray;
+  border-radius:40px;
+  text-align:center;
+  > span {
+    font-size:12px;
+  }
+}
+
+.food__goods {
+  background:#f5f5f5;
+  border-radius:40px;
+  &:hover {
+    background:rgb(255, 185, 185);
+    transition: .4s;
+    color:#fff;
+    border:solid 1px rgb(255, 126, 126);
+  }
+}
+
+.good_now {
+  border:solid 1px rgb(255, 126, 126);
+  * {
+    color:rgb(255, 78, 78);
+  }
+  &_heart {
+    font-size:18px;
+  }
+}
+
 
 .emphasis {
   font-weight:600;

@@ -41,15 +41,12 @@ class FoodsController < ApplicationController
     @food = Food.find(params[:id])
     @foodstuffs = Foodstuff.where(food_id: params[:id])
     @recipes = Recipe.where(food_id: params[:id])
+    @good = Good.where(item_id: params[:id])
   end
 
   def destroy
     @food = Food.find(params[:id])
     @food.destroy
-  end
-
-  def mypage
-    @foods = Food.where(user_id: current_user.id).order("created_at desc")
   end
 
   def search

@@ -1,0 +1,65 @@
+<% if user_signed_in? %>
+  <% if food.user_id != current_user.id %>
+
+    <% if food.good_user(current_user.id) %>
+      <%= link_to food_good_path(good, food_id: food.id), method: :delete, id: "good-button", remote: true do %>
+      <button class="food__goods good_now">
+        <div class="good__btn">
+          <span class="good_now_heart">
+            <i class="fa fa-heart"></i>
+          </span>
+          <span>
+            いいね済
+          </span>
+          <span>
+            <%= food.goods_count %>
+          </span>
+        </div>
+      </button>
+      <% end %>
+
+    <% else %>
+      <%= link_to food_good_index_path(food.id), method: :post, id: "good-button", class:"good_btn", remote: true do %>
+      <button class="food__goods">
+        <div class="good__btn">
+          <span>
+            ♡
+          </span>
+          <span>
+            いいね
+          </span>
+          <span>
+            <%= food.goods_count %>
+          </span>
+        </div>
+      </button>
+      <% end %>
+    <% end %>
+
+  <% else%>
+    <div class="no__good__btn">
+      <span>
+        ♡
+      </span>
+      <span>
+        いいね
+      </span>
+      <span>
+        <%= food.goods_count %>
+      </span>
+    </div>
+  <% end %>
+
+<% else %>
+  <div class="no__good__btn">
+    <span>
+      ♡
+    </span>
+    <span>
+      いいね
+    </span>
+    <span>
+      <%= food.goods_count %>
+    </span>
+  </div>
+<% end %>
