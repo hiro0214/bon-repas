@@ -39,12 +39,12 @@ $(document).on('turbolinks:load', function() {
   })
 
   $(document).on("click", ".search__list > p", function(){
-    alert("ok")
+    var input = $(this).text()
+    $("#search__name").val(input)
   })
 
-  $("#search__name").blur(function() {
+  $(document).on("click", ' :not(".search__list > p")', function(){
     $(".search__list").empty()
-  });
-
+  })
 
 });
