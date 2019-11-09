@@ -1,5 +1,3 @@
-= render "header"
-
 .detail
   .detail__top
     %h1
@@ -31,10 +29,10 @@
   .detail__bottom
     %p 作り方
     .detail__bottom__recipe
-      - @recipes.each_with_index do |f,i|
+      - @recipes.each.with_index(1) do |f,index|
         .detail__bottom__recipe__list
           %span
-            = i + 1
+            = index
           %p
             = f.process
 
@@ -46,6 +44,5 @@
 
       .detail__bottom__good
         = render partial: "good/good", locals: {food: @food, good: @good}
-
 
 %p 関連するレシピ

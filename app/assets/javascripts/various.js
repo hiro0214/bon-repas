@@ -1,5 +1,14 @@
 $(document).on('turbolinks:load', function(){
 
+  $(".my__food").hover(
+    function(){
+      $(".good__info").css({opacity: 1, transition: ".4s"})
+    },
+    function(){
+      $(".good__info").css("opacity", 0)
+    }
+  )
+
   if(document.URL.match("/update_after")) {
     alert("投稿を編集しました")
     window.location.href = "/";
