@@ -10,9 +10,15 @@
         = f.text_field :food_name, placeholder: "  料理名を入力してください"
 
       .new__input
-        = f.label "画像"
-        %span 必須
-        = f.file_field :image, placeholder: "  画像を添付してください"
+        %p
+          画像
+          %span 必須
+        %label
+          .new__image__preview
+            = f.file_field :image, class: "up-image"
+            %br
+            .new__image__list#image_list
+              %p クリックして画像をアップロード
 
       .new__input
         = f.label "説明"
