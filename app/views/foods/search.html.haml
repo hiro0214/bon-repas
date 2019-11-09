@@ -3,11 +3,11 @@
 
   .main__contents
     .main__contents__top
-      - if @input.length != 0
+      - if @input == "" || @input == nil
+        %p 全てのレシピ一覧
+      - else
         %p
           = "#{@input}の検索結果"
-      - else
-        %p 全てのレシピ一覧
     .main__contents__bottom
       - @foods.each do |food|
         .main__food.search__food
@@ -17,3 +17,9 @@
             = image_tag food.image.url, class: "main__food__img"
             .main__food__name
               = food.food_name
+            .main__food__info
+              %p カテゴリー :
+              %span
+                = "#{food.category_id}"
+              %span.middle__good
+                = "いいね数🧡#{food.goods_count}"

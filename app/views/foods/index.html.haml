@@ -47,13 +47,11 @@
   -# ランダムで検索
   -# 気分で検索
   -# 選択肢で検索
-  -# いいね数が多い順
-  -# 最新順
 
   .main__contents
     .main__contents__top
-      %p 和食のレシピ一覧
-      = link_to "もっと見る", "more/1"
+      %p 和食の新着レシピ一覧
+      = link_to "もっと見る", "more/1", class: "main__more"
     .main__contents__bottom
       - @ja_foods.each do |food|
         .main__food
@@ -65,8 +63,8 @@
               = food.food_name
 
     .main__contents__top
-      %p 洋食のレシピ一覧
-      = link_to "もっと見る", "more/2"
+      %p 洋食の新着レシピ一覧
+      = link_to "もっと見る", "more/2", class: "main__more"
     .main__contents__bottom
       - @we_foods.each do |food|
         .main__food
@@ -78,8 +76,8 @@
               = food.food_name
 
     .main__contents__top
-      %p おかずのレシピ一覧
-      = link_to "もっと見る", "more/5"
+      %p おかずの新着レシピ一覧
+      = link_to "もっと見る", "more/5", class: "main__more"
     .main__contents__bottom
       - @side_foods.each do |food|
         .main__food

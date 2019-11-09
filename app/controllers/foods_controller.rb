@@ -60,6 +60,15 @@ class FoodsController < ApplicationController
       material = Foodstuff.where("material LIKE(?)", "%#{@input}%")
       food_id = material.map{ |m| m.food_id}.uniq
       @foods = Food.where(id: food_id).order("created_at desc")
+    elsif params[:order] == "1"
+      @input = "最新順のレシピ"
+      @foods = Food.all.order("created_at desc")
+    elsif params[:order] == "2"
+      @input = "いいねが多い順"
+      @foods = Food.all.order("goods_count desc")
+    else
+      @input == ""
+      @foods = Food.all
     end
   end
 
@@ -81,7 +90,7 @@ class FoodsController < ApplicationController
       @foods = Food.where(category_id: "おかず").order("created_at desc")
     else
       @category = "全て"
-      @foods = Food.all.order("created_at desc")
+      @foods = Food.all
     end
   end
 

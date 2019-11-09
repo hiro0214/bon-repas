@@ -14,3 +14,6 @@
             = image_tag food.image.url, class: "main__food__img"
             .main__food__name
               = food.food_name
+            .main__food__info
+              %span.middle__good
+                = "いいね数🧡#{food.goods_count}"

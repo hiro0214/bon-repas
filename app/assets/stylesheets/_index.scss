@@ -210,12 +210,16 @@ header {
         font-size: 24px;
         font-weight: 600;
       }
+      .main__more {
+        color:rgb(0, 132, 255);
+      }
     }
     &__bottom {
       width: 90%;
       min-height: 320px;
       margin: 20px auto 60px;
       display: flex;
+      flex-wrap: wrap;
     }
   }
   &__food {
@@ -224,7 +228,7 @@ header {
     border: solid 1px rgb(222, 213, 192);
     border-radius:5px;
     position:relative;
-    p {
+    > p {
       background:#fff;
       color:rgb(253, 138, 6);
       width:250px;
@@ -252,6 +256,22 @@ header {
     &:hover {
       border:solid 1px rgb(0, 110, 255);
       transition: .4s;
+    }
+    &__info {
+      padding:0 10px 10px;
+      p {
+        color:#000;
+        display:inline;
+        font-weight:600;
+        + span {
+          color:rgb(0, 132, 255);
+          font-size:18px;
+        }
+      }
+      .middle__good {
+        color:#000;
+        float:right;
+      }
     }
   }
 }
