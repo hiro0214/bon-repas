@@ -3,8 +3,9 @@
     %h1 検索フォーム
     %p 料理名で検索
     = form_with url: search_path, method: :get ,local: true do |f|
-      = f.text_field :search, placeholder: "何を検索しますか？", class: "search__input"
+      = f.text_field :search, placeholder: "何を検索しますか？", class: "search__input", id: "search__name"
       = f.submit "検索"
+      .search__list
 
     %p 食材で検索
     = form_with url: search_path, method: :get ,local: true do |f|
@@ -18,5 +19,5 @@
 
     %p 条件で検索
     = form_with url: search_path, method: :get ,local: true do |f|
-      = f.select :order, [["カテゴリーを選択してください",""], ["最新順で検索",1], ["いいねが多い順で検索",2]], {}, {class: "search__input"}
+      = f.select :order, [["カテゴリーを選択してください",""], ["最新順で検索",1], ["いいねが多い順で検索",2], ["ランダムに検索",3]], {}, {class: "search__input"}
       = f.submit "検索"

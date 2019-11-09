@@ -9,6 +9,12 @@ class FoodsController < ApplicationController
     @ja_foods = Food.where(category_id: "和食").limit(3).order("created_at desc")
     @we_foods = Food.where(category_id: "洋食").limit(3).order("created_at desc")
     @side_foods = Food.where(category_id: "おかず").limit(3).order("created_at desc")
+
+    @search = Food.where("food_name like(?)", "%#{params[:input]}%" ).limit(10)
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def new
@@ -66,6 +72,9 @@ class FoodsController < ApplicationController
     elsif params[:order] == "2"
       @input = "いいねが多い順"
       @foods = Food.all.order("goods_count desc")
+    elsif params[:order] == "3"
+      @input = "ランダムで"
+      @foods = Food.all.shuffle
     else
       @input == ""
       @foods = Food.all
