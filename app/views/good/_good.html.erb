@@ -1,6 +1,7 @@
 <% if user_signed_in? %>
   <% if food.user_id != current_user.id %>
 
+    <%# 既にいいねをしていたら削除をする %>
     <% if food.good_user(current_user.id) %>
       <%= link_to food_good_path(good, food_id: food.id), method: :delete, id: "good-button", remote: true do %>
       <button class="food__goods good_now">
@@ -18,6 +19,7 @@
       </button>
       <% end %>
 
+    <%# まだいいねをしていないならいいねをする %>
     <% else %>
       <%= link_to food_good_index_path(food.id), method: :post, id: "good-button", class:"good_btn", remote: true do %>
       <button class="food__goods">
@@ -36,6 +38,7 @@
       <% end %>
     <% end %>
 
+  <%# 自分が投稿したレシピ %>
   <% else%>
     <div class="no__good__btn my__food">
       <span>
@@ -51,8 +54,9 @@
     <p class="good__info">自分が投稿したレシピにはいいねは出来ません</p>
   <% end %>
 
+<%# ログインをしていない %>
 <% else %>
-  <div class="no__good__btn">
+  <div class="no__good__btn signin__food">
     <span>
       ♡
     </span>
@@ -63,4 +67,5 @@
       <%= food.goods_count %>
     </span>
   </div>
+  <p class="good__info">いいねをするにはログインをしてください</p>
 <% end %>

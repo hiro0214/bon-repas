@@ -1,4 +1,7 @@
 class GoodController < ApplicationController
+
+  before_action :authenticate_user!
+
   def create
     @good = Good.create(user_id: current_user.id, food_id: params[:food_id])
     @goods = Good.where(food_id: params[:food_id])

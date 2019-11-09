@@ -1,5 +1,7 @@
 class FoodsController < ApplicationController
 
+  before_action :authenticate_user!, except: [:index, :show, :search, :more]
+
   def index
     @foods_1 = Food.order("RAND()").limit(3)
     @foods_2 = Food.order("RAND()").limit(3).where.not(id: @foods_1.map{|f| f.id})

@@ -216,7 +216,6 @@ header {
       min-height: 320px;
       margin: 20px auto 60px;
       display: flex;
-      flex-wrap: wrap;
     }
   }
   &__food {
@@ -252,6 +251,7 @@ header {
     }
     &:hover {
       border:solid 1px rgb(0, 110, 255);
+      transition: .4s;
     }
   }
 }

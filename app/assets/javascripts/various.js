@@ -1,6 +1,6 @@
 $(document).on('turbolinks:load', function(){
 
-  $(".my__food").hover(
+  $(".my__food, .signin__food").hover(
     function(){
       $(".good__info").css({opacity: 1, transition: ".4s"})
     },
@@ -13,6 +13,15 @@ $(document).on('turbolinks:load', function(){
     alert("投稿を編集しました")
     window.location.href = "/";
   }
+
+  $(".sign_up > input").click(function(){
+    if (confirm("会員登録を行いますか？")){
+    } else {
+      return false
+    }
+  })
+
+  $(".sign h2").text("ユーザーの登録に失敗しました")
 
   $(".signout").click(function(){
     if (confirm("ログアウトしてもよろしいですか？")) {
