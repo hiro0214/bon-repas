@@ -231,6 +231,10 @@ header {
       }
       .main__more {
         color:rgb(0, 132, 255);
+        border:none;
+        cursor:pointer;
+        position:relative;
+        z-index:100;
       }
     }
     &__bottom {

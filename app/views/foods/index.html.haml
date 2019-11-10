@@ -49,12 +49,14 @@
 
   .main__contents
     .main__contents__top
-      %p 和食の新着レシピ一覧
-      = link_to "もっと見る", "more/1", class: "main__more"
+      %p 肉の新着レシピ一覧
+      = form_with url: "/more", method: :get, local: true do |f|
+        = f.hidden_field :category, value: "肉"
+        = f.submit "もっと見る", class: "main__more"
     .main__contents__bottom
-      - @ja_foods.each do |food|
+      - @meat_foods.each do |food|
         .main__food
-          %p
+          %p.main__food__text
             = food.text
           = link_to "foods/#{food.id}" ,class: "food__list" do
             = image_tag food.image.url, class: "main__food__img"
@@ -62,12 +64,14 @@
               = food.food_name
 
     .main__contents__top
-      %p 洋食の新着レシピ一覧
-      = link_to "もっと見る", "more/2", class: "main__more"
+      %p 野菜の新着レシピ一覧
+      = form_with url: "/more", method: :get, local: true do |f|
+        = f.hidden_field :category, value: "野菜"
+        = f.submit "もっと見る", class: "main__more"
     .main__contents__bottom
-      - @we_foods.each do |food|
+      - @ve_foods.each do |food|
         .main__food
-          %p
+          %p.main__food__text
             = food.text
           = link_to "foods/#{food.id}" ,class: "food__list" do
             = image_tag food.image.url, class: "main__food__img"
@@ -75,12 +79,14 @@
               = food.food_name
 
     .main__contents__top
-      %p おかずの新着レシピ一覧
-      = link_to "もっと見る", "more/5", class: "main__more"
+      %p 時短の新着レシピ一覧
+      = form_with url: "/more", method: :get, local: true do |f|
+        = f.hidden_field :category, value: "時短"
+        = f.submit "もっと見る", class: "main__more"
     .main__contents__bottom
       - @side_foods.each do |food|
         .main__food
-          %p
+          %p.main__food__text
             = food.text
           = link_to "foods/#{food.id}" ,class: "food__list" do
             = image_tag food.image.url, class: "main__food__img"

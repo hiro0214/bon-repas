@@ -15,5 +15,8 @@
             .main__food__name
               = food.food_name
             .main__food__info
+              %p カテゴリー :
+              %span
+                = "#{food.category_id}"
               %span.good_count
                 = "いいね数🧡#{food.goods_count}"

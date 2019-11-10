@@ -39,8 +39,11 @@ $(document).on('turbolinks:load', function(){
   $(".food__list").hover(
     function(){
       $(this).prev().animate({opacity: 1}, 300)
+      $(this).prev().css("z-index", 200)
     },function(){
-      $(this).prev().animate({opacity: 0}, 300)
+      $(this).prev().animate({opacity: 0}, 300, function(){
+        $(".main__food__text").css("z-index", 1)
+      })
     }
   )
 

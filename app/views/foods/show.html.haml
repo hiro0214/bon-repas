@@ -45,7 +45,7 @@
         = render partial: "good/good", locals: {food: @food, good: @good}
 
 .other
-  - if @food.category_id == "おかず"
+  - if @food.category_id == "時短"
     .other__foods
       %p おかずにこちらのレシピもどうぞ
       .other__foods__list
