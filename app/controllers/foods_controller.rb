@@ -50,6 +50,12 @@ class FoodsController < ApplicationController
     @foodstuffs = Foodstuff.where(food_id: params[:id])
     @recipes = Recipe.where(food_id: params[:id])
     @good = Good.where(item_id: params[:id])
+    if @food.category_id == "おかず"
+      @side_foods = Food.where(category_id: "おかず").order("RAND()").limit(6)
+    else
+      @other_category = Food.where(category_id: @food.category_id).order("RAND()").limit(3)
+      @side_foods = Food.where(category_id: "おかず").order("RAND()").limit(3)
+    end
   end
 
   def destroy

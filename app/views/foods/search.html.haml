@@ -1,4 +1,4 @@
-.main
+.main.clearfix
   = render "search"
 
   .main__contents
@@ -21,5 +21,5 @@
               %p カテゴリー :
               %span
                 = "#{food.category_id}"
-              %span.middle__good
+              %span.good_count
                 = "いいね数🧡#{food.goods_count}"

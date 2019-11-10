@@ -14,9 +14,19 @@
       border-radius: 5px;
       border-bottom:none;
       li {
+        height:46px;
+        line-height:46px;
         font-size:14px;
-        padding:12px;
         border-bottom:solid 1px rgb(255, 172, 94);
+        a {
+          display:block;
+          color:rgb(70, 70, 70);
+          padding-left:10px;
+          &:hover {
+            font-weight:600;
+            background:rgb(255, 223, 153);
+          }
+        }
       }
     }
   }

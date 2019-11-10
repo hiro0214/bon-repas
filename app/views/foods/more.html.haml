@@ -1,4 +1,4 @@
-.main
+.main.clearfix
   = render "search"
 
   .main__contents
@@ -15,5 +15,5 @@
             .main__food__name
               = food.food_name
             .main__food__info
-              %span.middle__good
+              %span.good_count
                 = "いいね数🧡#{food.goods_count}"

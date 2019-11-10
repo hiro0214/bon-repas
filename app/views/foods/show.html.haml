@@ -25,7 +25,6 @@
               %th.detail__middle__stuffs__right
                 = f.amount
 
-
   .detail__bottom
     %p 作り方
     .detail__bottom__recipe
@@ -45,4 +44,42 @@
       .detail__bottom__good
         = render partial: "good/good", locals: {food: @food, good: @good}
 
-%p 関連するレシピ
+.other
+  - if @food.category_id == "おかず"
+    .other__foods
+      %p おかずにこちらのレシピもどうぞ
+      .other__foods__list
+        - @side_foods.each do |food|
+          = link_to "/foods/#{food.id}", class: "other__food" do
+            = image_tag food.image.url
+            %p
+              = food.food_name
+            .other__food__info
+              %span.good_count
+                = "いいね数🧡#{food.goods_count}"
+
+  - else
+    .other__foods
+      %p
+        = "#{@food.category_id}の別レシピ"
+      .other__foods__list
+        - @other_category.each do |food|
+          = link_to "/foods/#{food.id}", class: "other__food" do
+            = image_tag food.image.url
+            %p
+              = food.food_name
+            .other__food__info
+              %span.good_count
+                = "いいね数🧡#{food.goods_count}"
+
+    .other__foods
+      %p おかずにこちらのレシピもどうぞ
+      .other__foods__list
+        - @side_foods.each do |food|
+          = link_to "/foods/#{food.id}", class: "other__food" do
+            = image_tag food.image.url
+            %p
+              = food.food_name
+            .other__food__info
+              %span.good_count
+                = "いいね数🧡#{food.goods_count}"

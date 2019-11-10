@@ -32,7 +32,7 @@ $(document).on('turbolinks:load', function(){
     setTimeout(food_1, 5000)
   }
 
-  $("#title").click(function(){
+  $(".title").click(function(){
     window.location.href = "/"
   })
 

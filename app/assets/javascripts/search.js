@@ -35,6 +35,8 @@ $(document).on('turbolinks:load', function() {
       .fail(function(){
 
       })
+    } else {
+      $(".search__list").empty()
     }
   })
 

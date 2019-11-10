@@ -119,9 +119,6 @@ header {
           font-size:18px;
         }
       }
-      .middle__good {
-        float:right;
-      }
     }
   }
   &__image {
@@ -167,8 +164,8 @@ header {
     float: left;
     &__search {
       width: 300px;
-      // height: calc( 100% - 40px); #あとでいる
-      height: 600px;
+      height: calc( 100% - 40px);
+      // height: 600px;
       border:solid 1px rgb(255, 123, 0);
       border-radius:5px;
       background: #fff;
@@ -290,14 +287,40 @@ header {
           font-size:18px;
         }
       }
-      .middle__good {
-        color:#000;
-        float:right;
-      }
     }
   }
 }
 
+.good_count {
+  color:#000;
+  float:right;
+  font-size:14px;
+}
+
 .search__food {
   margin-bottom:60px;
+}
+
+.clearfix:after {
+  display:block;
+  content:"";
+  clear: both;
+}
+
+footer {
+  width:100vw;
+  height:60px;
+  background:rgb(63, 42, 14);
+  p {
+    width:140px;
+    margin:0 auto;
+    color:#fff;
+    font-size:30px;
+    line-height:60px;
+    font-family: 'Snell Roundhand',sans-serif;
+    &:hover {
+      opacity:0.8;
+      cursor:pointer;
+    }
+  }
 }
