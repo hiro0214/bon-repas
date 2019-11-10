@@ -13,8 +13,6 @@
     h1 {
       font-size: 100px;
       font-family: 'Snell Roundhand',sans-serif;
-      // font-family: 'Zapfino',serif;
-      // font-family: 'Sacramento', cursive;
     }
   }
 }
@@ -251,6 +249,7 @@ header {
     border: solid 1px rgb(222, 213, 192);
     border-radius:5px;
     position:relative;
+    opacity: 0;
     > p {
       background:#fff;
       color:rgb(253, 138, 6);

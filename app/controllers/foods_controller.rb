@@ -1,6 +1,11 @@
 class FoodsController < ApplicationController
 
   before_action :authenticate_user!, except: [:index, :show, :search, :more]
+  before_action :set_food, only: [:edit, :update, :show, :destroy]
+
+  def top
+    render :layout => nil
+  end
 
   def index
     @foods_1 = Food.order("RAND()").limit(3)
@@ -33,11 +38,11 @@ class FoodsController < ApplicationController
   end
 
   def edit
-    @food = Food.find(params[:id])
+    # set_food
   end
 
   def update
-    @food = Food.find(params[:id])
+    # set_food
     if @food.update(food_params)
       redirect_to update_after_path
     else
@@ -46,7 +51,7 @@ class FoodsController < ApplicationController
   end
 
   def show
-    @food = Food.find(params[:id])
+    # set_food
     @foodstuffs = Foodstuff.where(food_id: params[:id])
     @recipes = Recipe.where(food_id: params[:id])
     @good = Good.where(item_id: params[:id])
@@ -59,7 +64,7 @@ class FoodsController < ApplicationController
   end
 
   def destroy
-    @food = Food.find(params[:id])
+    # set_food
     @food.destroy
   end
 
@@ -103,5 +108,9 @@ class FoodsController < ApplicationController
     params.require(:food).permit(:food_name, :image, :text, :category_id, :servings, :advice,
                                 [foodstuffs_attributes: [:id, :material, :amount]],
                                 [recipes_attributes: [:id ,:process]]).merge(user_id: current_user.id)
+  end
+
+  def set_food
+    @food = Food.find(params[:id])
   end
 end
