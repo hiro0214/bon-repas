@@ -20,3 +20,5 @@
                 = "#{food.category_id}"
               %span.good_count
                 = "いいね数🧡#{food.goods_count}"
+    .paginate
+      = paginate(@foods)

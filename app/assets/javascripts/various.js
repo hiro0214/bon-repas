@@ -9,6 +9,8 @@ $(document).on('turbolinks:load', function(){
     }
   )
 
+  $("input").attr("autocomplete", "off")
+
   if(document.URL.match("/update_after")) {
     alert("投稿を編集しました")
     window.location.href = "/";

@@ -35,14 +35,14 @@
           %p
             = f.process
 
-    - if @food.advice
+    - if @food.advice != ""
       %p コツ・ポイント
       .detail__bottom__point
         %p
           = @food.advice
 
-      .detail__bottom__good
-        = render partial: "good/good", locals: {food: @food, good: @good}
+    .detail__bottom__good
+      = render partial: "good/good", locals: {food: @food, good: @good}
 
 .other
   - if @food.category_id == "時短"

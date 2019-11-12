@@ -71,34 +71,34 @@ class FoodsController < ApplicationController
   def search
     if params[:search] != nil
       @input = params[:search]
-      @foods = Food.where("food_name LIKE(?) or text LIKE(?)", "%#{@input}%", "%#{@input}%").order("created_at desc")
+      @foods = Food.where("food_name LIKE(?) or text LIKE(?)", "%#{@input}%", "%#{@input}%").order("created_at desc").page(params[:page]).per(24)
     elsif params[:material] != nil
       @input = params[:material]
       material = Foodstuff.where("material LIKE(?)", "%#{@input}%")
       food_id = material.map{ |m| m.food_id}.uniq
-      @foods = Food.where(id: food_id).order("created_at desc")
+      @foods = Food.where(id: food_id).order("created_at desc").page(params[:page]).per(24)
     elsif params[:order] == "1"
       @input = "最新順のレシピ"
-      @foods = Food.all.order("created_at desc")
+      @foods = Food.all.order("created_at desc").page(params[:page]).per(24)
     elsif params[:order] == "2"
       @input = "いいねが多い順"
-      @foods = Food.all.order("goods_count desc")
+      @foods = Food.all.order("goods_count desc").page(params[:page]).per(24)
     elsif params[:order] == "3"
       @input = "ランダムで"
-      @foods = Food.all.shuffle
+      @foods = Food.all.shuffle.page(params[:page]).per(24)
     else
       @input == ""
-      @foods = Food.all
+      @foods = Food.all.page(params[:page]).per(24)
     end
   end
 
   def more
     if params[:category] != ""
       @category = params[:category]
-      @foods = Food.where(category_id: @category).order("created_at desc")
+      @foods = Food.where(category_id: @category).order("created_at desc").page(params[:page]).per(24)
     else
       @category = "全て"
-      @foods = Food.all
+      @foods = Food.all.page(params[:page]).per(24)
     end
   end
 

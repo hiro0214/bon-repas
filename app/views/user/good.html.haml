@@ -18,6 +18,8 @@
                 = food.text
               .list__food__info__btn
                 = link_to "詳細ページに行く", "/foods/#{food.id}", class: "info__btn"
+        .paginate
+          = paginate(@foods)
 
       - else
         %p.no__list いいね履歴はまだありません。
