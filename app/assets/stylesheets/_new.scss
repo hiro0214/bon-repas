@@ -49,6 +49,7 @@
     height:50px;
     display:block;
     margin:10px auto 0;
+    border:solid 1px gray;
   }
   &__serving {
     display:flex;
@@ -92,7 +93,7 @@
     margin:0 10px 0 20px;
   }
   input {
-    width:200px;
+    width:30%;
     margin: 0;
   }
 }
