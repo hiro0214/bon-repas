@@ -1,10 +1,10 @@
 $(document).on('turbolinks:load', function(){
 
   if ($('.foodstuff_input').length == 1) {
-  　$('.remove-btn').hide();
+    $('.remove-btn').hide();
   }
   if ($('.recipe_input').length == 1) {
-  　$('.remove-btn').hide();
+    $('.remove-btn').hide();
   }
 
   $("#new_food, .edit_food").on("submit" ,function (){

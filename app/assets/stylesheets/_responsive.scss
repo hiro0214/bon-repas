@@ -1,0 +1,151 @@
+// PC用のcss
+@media screen and (min-width: 767px) {
+
+  body {
+    background:rgb(255, 218, 218);
+  }
+
+
+}
+
+
+
+
+
+
+// タブレット用のcss
+@media screen and (max-width: 767px) {
+
+  body {
+    background:rgb(221, 221, 255);
+  }
+
+  header {
+    height: 155px;
+  }
+
+  .header {
+    &__top {
+      height:100%;
+      p {
+        text-align:center;
+      }
+    }
+    &__bottom {
+      width:240px;
+      margin:10px auto 0;
+      &__sign {
+        float:none;
+        ul {
+          li {
+            p {
+              font-size:24px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .main {
+    margin-bottom:30px;
+    &__side {
+      float:none;
+      width:100%;
+      margin-bottom:30px;
+    }
+    &__contents {
+      float:none;
+      width:90vw;
+      margin:0 auto;
+    }
+  }
+
+  .detail {
+    width:90vw;
+    &__middle {
+      display:block;
+      &__img {
+        width:85%;
+        margin: 20px auto;
+        display:block;
+      }
+      &__stuffs {
+        width:85%;
+        &__top {
+          > th {
+            font-size:16px;
+          }
+        }
+      }
+    }
+    &__bottom__recipe__list {
+      width:40%;
+      margin:10px 10px 10px 0;
+    }
+  }
+
+  .other {
+    width:90vw;
+  }
+
+  .new {
+    width:90vw;
+  }
+
+  .mypage {
+    display:block;
+    &__side {
+      width:90%;
+      margin:0 auto 20px;
+      ul {
+        flex-wrap:wrap;
+        display:flex;
+        width:100%;
+        border:none;
+        li {
+          text-align:center;
+          width:50%;
+          border:solid 1px rgb(255, 123, 0);
+        }
+      }
+    }
+    &__main {
+      width:90%;
+      &__list {
+        width:100%;
+        .list__food {
+          &__info__btn {
+            width:100%;
+            a {
+              min-width:31%;
+              margin-right:5px;
+              font-size:13px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+// スマホ用のcss
+@media screen and (max-width: 479px) {
+
+  body {
+    background:rgb(225, 252, 225);
+  }
+
+}

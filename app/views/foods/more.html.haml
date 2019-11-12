@@ -5,7 +5,7 @@
     .main__contents__top
       %p
         = "#{@category}のレシピ一覧"
-    .main__contents__bottom
+    .main__contents__bottom.main__wrap
       - @foods.each do |food|
         .main__food.search__food
           %p
