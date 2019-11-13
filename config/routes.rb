@@ -12,8 +12,6 @@ Rails.application.routes.draw do
 
   get "search" => "foods#search"
   get "more" => "foods#more"
-  get "new_after" => "foods#new_after"
-  get "update_after" => "foods#update_after"
   get "top" => "foods#top"
 
 end

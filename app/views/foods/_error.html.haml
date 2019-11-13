@@ -1,0 +1,8 @@
+- if food.errors.any?
+  - unless food.valid?
+    - if errors = food.errors.full_messages_for(column.to_sym)
+      .alert
+        %ul
+          - errors.each do |error|
+            %li
+              = error

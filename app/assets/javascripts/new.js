@@ -14,9 +14,14 @@ $(document).on('turbolinks:load', function(){
     }
   })
 
-  if(document.URL.match("/new_after")) {
+  if($(".create").length) {
     alert("投稿が完了しました")
     window.location.href = "/";
   }
+
+  $("#1 li").text("料理名が正しくありません")
+  $("#2 li").text("画像が添付されていません")
+  $("#3 li").text("説明が正しくありません")
+  $("#4 li").text("カテゴリーが選択されていません")
 
 });

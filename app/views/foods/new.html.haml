@@ -2,12 +2,13 @@
   .new__form
     %h1 レシピ新規投稿
     = form_for [@food] do |f|
-      .new__input
+      .new__input#1
         = f.label "料理名"
         %span 必須
-        = f.text_field :food_name, placeholder: "  料理名を入力してください"
+        = f.text_field :food_name, placeholder: "  料理名を入力してください(40文字まで)"
+        = render partial: "error", locals: {food: @food, column: "food_name"}
 
-      .new__input
+      .new__input#2
         %p
           画像
           %span 必須
@@ -17,18 +18,21 @@
             %br
             .new__image__list#image_list
               %p クリックして画像をアップロード
+        = render partial: "error", locals: {food: @food, column: "image"}
 
-      .new__input
+      .new__input#3
         = f.label "説明"
         %span 必須
-        = f.text_field :text, placeholder: "  料理の説明文を入力してください"
+        = f.text_field :text, placeholder: "  料理の説明文を入力してください(80文字まで)"
+        = render partial: "error", locals: {food: @food, column: "text"}
 
-      .new__input
+      .new__input#4
         = f.label "カテゴリー"
         %span 必須
         = f.select :category_id, [["カテゴリーを選択してください",""], ["肉","肉"], ["野菜","野菜"], ["中華","中華"], ["魚","魚"], ["麺類","麺類"], ["ご飯物","ご飯物"], ["パン","パン"], ["スープ","スープ"], ["煮物","煮物"], ["中華","中華"], ["パスタ","パスタ"], ["時短","時短"], ["その他(和食)","その他(和食)"], ["その他(洋食)","その他(洋食)"]], {}, {class: "new__category"}
+        = render partial: "error", locals: {food: @food, column: "category_id"}
 
-      .new__input
+      .new__input#5
         = f.label "食材"
         %span 必須
         .new__serving
@@ -37,14 +41,21 @@
           = render 'foodstuff_fields', f: fs
         .links
           = link_to_add_association '＋次の材料を追加', f, :foodstuffs
+        - if flash[:foodstuff]
+          .foodstuff_alert
+            = flash[:foodstuff]
 
-      .new__input
+
+      .new__input#6
         = f.label "工程"
         %span 必須
         = f.fields_for :recipes do |r|
           = render 'recipe_fields', f: r
         .links
           = link_to_add_association '＋次の工程を追加', f, :recipes
+        - if flash[:recipe]
+          .recipe_alert
+            = flash[:recipe]
 
       .new__input
         = f.label "コツ・ポイント"

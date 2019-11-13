@@ -71,3 +71,5 @@ gem 'jquery-rails'
 gem "haml-rails"
 gem 'ancestry'
 gem 'cocoon'
+gem 'rspec-rails'
+gem 'factory_bot_rails'

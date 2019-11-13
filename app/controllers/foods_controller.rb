@@ -4,7 +4,7 @@ class FoodsController < ApplicationController
   before_action :set_food, only: [:edit, :update, :show, :destroy]
 
   def top
-    render :layout => nil
+    render layout: nil
   end
 
   def index
@@ -26,13 +26,20 @@ class FoodsController < ApplicationController
     @food = Food.new
     @food.foodstuffs.build
     @food.recipes.build
+    flash[:foodstuff] = ""
+    flash[:recipe] = ""
   end
 
   def create
     @food = Food.new(food_params)
     if @food.save
-      redirect_to new_after_path
+      render layout: nil
+
     else
+      foodstuffs = @food.foodstuffs.map{|f| f.valid?}
+      flash[:foodstuff] = "食材が入力されていません" unless foodstuffs.include?(true)
+      recipes = @food.recipes.map{|r| r.valid?}
+      flash[:recipe] = "工程が入力されていません" unless recipes.include?(true)
       render action: :new
     end
   end
@@ -44,7 +51,7 @@ class FoodsController < ApplicationController
   def update
     # set_food
     if @food.update(food_params)
-      redirect_to update_after_path
+      render layout: nil
     else
       render action: :edit
     end
@@ -113,4 +120,5 @@ class FoodsController < ApplicationController
   def set_food
     @food = Food.find(params[:id])
   end
+
 end

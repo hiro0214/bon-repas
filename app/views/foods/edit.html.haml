@@ -8,9 +8,15 @@
         = f.text_field :food_name, placeholder: "  料理名を入力してください"
 
       .new__input
-        = f.label "画像"
-        %span 必須
-        = f.file_field :image, placeholder: "  画像を添付してください"
+        %p
+          画像
+          %span 必須
+        %label
+          .new__image__preview
+            = f.file_field :image, class: "up-image"
+            %br
+            .new__image__list#image_list
+              %p クリックして画像をアップロード
 
       .new__input
         = f.label "説明"
@@ -20,7 +26,7 @@
       .new__input
         = f.label "カテゴリー"
         %span 必須
-        = f.select :category_id, [["カテゴリーを選択してください",""], ["和食","和食"], ["洋食","洋食"], ["中華","中華"], ["弁当","弁当"], ["おかず","おかず"]], {}, {class: "new__category"}
+        = f.select :category_id, [["カテゴリーを選択してください",""], ["肉","肉"], ["野菜","野菜"], ["中華","中華"], ["魚","魚"], ["麺類","麺類"], ["ご飯物","ご飯物"], ["パン","パン"], ["スープ","スープ"], ["煮物","煮物"], ["中華","中華"], ["パスタ","パスタ"], ["時短","時短"], ["その他(和食)","その他(和食)"], ["その他(洋食)","その他(洋食)"]], {}, {class: "new__category"}
 
       .new__input
         = f.label "食材"

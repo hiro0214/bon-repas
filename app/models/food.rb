@@ -13,9 +13,9 @@ class Food < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
-  validates :food_name ,presence:true
+  validates :food_name ,presence:true, length: {maximum: 40}
   validates :image ,presence: true
-  validates :text ,presence: true
+  validates :text ,presence: true, length: {maximum: 80}
   validates :category_id ,presence: true
   validates :servings ,presence: true
 
