@@ -72,7 +72,11 @@ class FoodsController < ApplicationController
 
   def destroy
     # set_food
-    @food.destroy
+    if @food.destroy
+      render layout: nil
+    else
+      render action: :edit
+    end
   end
 
   def search

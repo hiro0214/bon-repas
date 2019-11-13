@@ -27,6 +27,8 @@
         width:80%;
         height:40px;
         margin-top:5px;
+        border:solid 1px gray;
+        border-radius:5px;
       }
     }
     .actions {
@@ -48,4 +50,8 @@
       }
     }
   }
+}
+
+.login {
+  margin-bottom:299px;
 }

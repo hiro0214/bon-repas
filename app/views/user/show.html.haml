@@ -15,6 +15,8 @@
             %h1 説明
             %p
               = food.text
+            .list__food__info__btn.show__btn
+              = link_to "詳細ページに行く", "/foods/#{food.id}", class: "info__btn"
             .list__food__info__btn
               = link_to "編集する", edit_food_path(food.id), class: "info__btn"
               = link_to "削除する", "/foods/#{food.id}", method: :delete, class: "info__btn delete__btn"

@@ -12,7 +12,7 @@ $(document).on('turbolinks:load', function(){
   $("input").attr("autocomplete", "off")
 
   if($(".update").length) {
-    alert("投稿を編集しました")
+    alert("レシピを編集しました")
     window.location.href = "/";
   }
 
@@ -39,7 +39,7 @@ $(document).on('turbolinks:load', function(){
     }
   })
 
-  if($(".delete").length) {
+  if($(".destroy").length) {
     alert("投稿を削除しました")
     window.location.href = "/";
   }
