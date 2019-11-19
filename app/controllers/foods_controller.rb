@@ -96,7 +96,7 @@ class FoodsController < ApplicationController
       @foods = Food.all.order("goods_count desc").page(params[:page]).per(24)
     elsif params[:order] == "3"
       @input = "ランダムで"
-      @foods = Food.all.shuffle.page(params[:page]).per(24)
+      @foods = Food.all.order("RAND()").page(params[:page]).per(24)
     else
       @input == ""
       @foods = Food.all.page(params[:page]).per(24)
