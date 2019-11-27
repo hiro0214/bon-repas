@@ -10,6 +10,7 @@
           %p カテゴリー :
           %span
             = "#{food.category_id}"
+          %br
           %span.good_count
             = "いいね数🧡#{food.goods_count}"
 
@@ -24,6 +25,7 @@
           %p カテゴリー :
           %span
             = "#{food.category_id}"
+          %br
           %span.good_count
             = "いいね数🧡#{food.goods_count}"
 
@@ -38,14 +40,13 @@
           %p カテゴリー :
           %span
             = "#{food.category_id}"
+          %br
           %span.good_count
             = "いいね数🧡#{food.goods_count}"
 
 
 .main.clearfix
   = render "search"
-  -# 気分で検索
-  -# 選択肢で検索
 
   .main__contents
     .main__contents__top

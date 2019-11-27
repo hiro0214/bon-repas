@@ -243,18 +243,22 @@ header {
       }
     }
     &__bottom {
-      width: 90%;
+      width: 95%;
       min-height: 320px;
       margin: 20px auto 60px;
       display: flex;
     }
     .main__wrap {
       flex-wrap: wrap;
+      width:95%;
+      > div {
+        margin: 10px 5px 60px;
+      }
     }
   }
   &__food {
-    width: 31%;
-    margin: 10px 0px 10px 10px;
+    width: 30%;
+    margin: 10px;
     border: solid 1px rgb(222, 213, 192);
     border-radius:5px;
     position:relative;
@@ -282,7 +286,6 @@ header {
       min-height: 55px;
       color: rgb(125, 148, 10);
       margin: 0px auto;
-      // overflow: hidden;
     }
     &:hover {
       border:solid 1px rgb(0, 110, 255);

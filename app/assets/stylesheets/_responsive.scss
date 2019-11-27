@@ -128,13 +128,90 @@
     }
   }
 
+  .sign {
+    width:90%;
+  }
+
+  .middle {
+    width:95%;
+    &__list {
+      padding: 10px 0;
+    }
+    &__image {
+      height:200px;
+    }
+    p {
+      font-size:14px;
+    }
+    span {
+      font-size:14px !important;
+    }
+  }
+
+  .main {
+    &__side__search {
+      width:90%;
+    }
+    &__food {
+      &__name {
+        font-size:14px;
+      }
+      &__img {
+        height:200px;
+      }
+      &__info {
+        p {
+          font-size:11px;
+        }
+        span {
+          font-size:13px !important;
+        }
+      }
+    }
+  }
+
+  .detail {
+    h1 {
+      font-size:18px;
+    }
+    p {
+      font-size:14px;
+    }
+    &__middle__img {
+      height:350px;
+    }
+  }
+
+  .other__food {
+    > img {
+      height:200px !important;
+    }
+    p {
+      font-size:14px;
+    }
+    span {
+      font-size:12px;
+    }
+  }
+
+  .list__food {
+    padding:20px 0 !important;
+    &__img {
+      height:250px !important;
+    }
+    &__info {
+      min-height:180px;
+      h1 {
+        font-size:14px !important;
+      }
+      p {
+        font-size:14px;
+        min-height:20px !important;
+      }
+    }
+  }
+
 }
-
-
-
-
-
-
 
 
 
@@ -146,6 +223,51 @@
 
   body {
     // background:rgb(225, 252, 225);
+  }
+
+  .middle__list {
+    p {
+      font-size:13px;
+    }
+    &__bottom {
+      p {
+        font-size:12px;
+      }
+      span {
+        font-size:11px !important;
+      }
+    }
+  }
+  .mid img {
+    height:180px;
+  }
+
+  .main {
+    &__contents {
+      width:95%;
+      &__bottom {
+        width:100%;
+    }
+    }
+    &__food__img {
+      height:180px;
+    }
+  }
+
+  .other__foods {
+    width:95%;
+  }
+
+  .other__food {
+    > img {
+      height:180px !important;
+    }
+    p {
+      font-size:13px;
+    }
+    span {
+      font-size:12px;
+    }
   }
 
 }
