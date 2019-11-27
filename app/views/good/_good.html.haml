@@ -1,0 +1,40 @@
+- if user_signed_in?
+  - if food.user_id != current_user.id
+    - if food.good_user(current_user.id)
+      = link_to food_good_path(good, food_id: food.id), method: :delete, id: "good-button", remote: true do
+        %button.food__goods.good_now
+          .good__btn
+            %span.good_now_heart
+              %i.fa.fa-heart
+            %span
+              いいね済
+            %span
+              = food.goods_count
+    - else
+      = link_to food_good_index_path(food.id), method: :post, id: "good-button", class:"good_btn", remote: true do
+        %button.food__goods
+          .good__btn
+            %span
+              ♡
+            %span
+              いいね
+            %span
+              = food.goods_count
+  - else
+    .no__good__btn.my__food
+      %span
+        ♡
+      %span
+        いいね
+      %span
+        = food.goods_count
+    %p.good__info 自分が投稿したレシピにはいいねは出来ません
+- else
+  .no__good__btn.signin__food
+    %span
+      ♡
+    %span
+      いいね
+    %span
+      = food.goods_count
+  %p.good__info いいねをするにはログインをしてください
