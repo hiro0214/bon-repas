@@ -9,19 +9,22 @@
         %p
           = "#{@input}の検索結果"
     .main__contents__bottom.main__wrap
-      - @foods.each do |food|
-        .main__food.search__food
-          %p
-            = food.text
-          = link_to "/foods/#{food.id}" ,class: "food__list" do
-            = image_tag food.image.url, class: "main__food__img"
-            .main__food__name
-              = food.food_name
-            .main__food__info
-              %p カテゴリー :
-              %span
-                = "#{food.category_id}"
-              %span.good_count
-                = "いいね数🧡#{food.goods_count}"
-    .paginate
-      = paginate(@foods)
+      - if @foods.length != 0
+        - @foods.each do |food|
+          .main__food.search__food
+            %p
+              = food.text
+            = link_to "/foods/#{food.id}" ,class: "food__list" do
+              = image_tag food.image.url, class: "main__food__img"
+              .main__food__name
+                = food.food_name
+              .main__food__info
+                %p カテゴリー :
+                %span
+                  = "#{food.category_id}"
+                %span.good_count
+                  = "いいね数🧡#{food.goods_count}"
+      - else
+        %p レシピが見つかりませんでした
+      .paginate
+        = paginate(@foods)

@@ -41,10 +41,7 @@
           = render 'foodstuff_fields', f: fs
         .links
           = link_to_add_association '＋次の材料を追加', f, :foodstuffs
-        - if flash[:foodstuff]
-          .foodstuff_alert
-            = flash[:foodstuff]
-
+        = render partial: "error", locals: {food: @food, column: "食材"}
 
       .new__input#6
         = f.label "工程"
@@ -53,9 +50,7 @@
           = render 'recipe_fields', f: r
         .links
           = link_to_add_association '＋次の工程を追加', f, :recipes
-        - if flash[:recipe]
-          .recipe_alert
-            = flash[:recipe]
+        = render partial: "error", locals: {food: @food, column: "工程"}
 
       .new__input
         = f.label "コツ・ポイント"

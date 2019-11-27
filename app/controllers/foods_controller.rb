@@ -15,31 +15,21 @@ class FoodsController < ApplicationController
     @ve_foods = Food.where(category_id: "野菜").limit(3).order("created_at desc")
     @side_foods = Food.where(category_id: "時短").limit(3).order("created_at desc")
 
+    # インクリメンタルサーチ用変数
     @search = Food.where("food_name like(?)", "%#{params[:input]}%" ).limit(10)
-    respond_to do |format|
-      format.html
-      format.json
-    end
   end
 
   def new
     @food = Food.new
     @food.foodstuffs.build
     @food.recipes.build
-    flash[:foodstuff] = ""
-    flash[:recipe] = ""
   end
 
   def create
     @food = Food.new(food_params)
     if @food.save
       render layout: nil
-
     else
-      foodstuffs = @food.foodstuffs.map{|f| f.valid?}
-      flash[:foodstuff] = "食材が入力されていません" unless foodstuffs.include?(true)
-      recipes = @food.recipes.map{|r| r.valid?}
-      flash[:recipe] = "工程が入力されていません" unless recipes.include?(true)
       render action: :new
     end
   end
@@ -113,16 +103,16 @@ class FoodsController < ApplicationController
     end
   end
 
+  def set_food
+    @food = Food.find(params[:id])
+  end
+
   private
 
   def food_params
     params.require(:food).permit(:food_name, :image, :text, :category_id, :servings, :advice,
                                 [foodstuffs_attributes: [:id, :material, :amount]],
                                 [recipes_attributes: [:id ,:process]]).merge(user_id: current_user.id)
-  end
-
-  def set_food
-    @food = Food.find(params[:id])
   end
 
 end

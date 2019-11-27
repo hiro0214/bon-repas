@@ -3,16 +3,16 @@ $(document).on('turbolinks:load', function () {
   const searchResult = $(".search__list");
 
   function appendfood(data) {
-    var html = `<p>${data.name}</p>`;
+    let html = `<p class="append__food">${data.name}</p>`;
     searchResult.append(html);
   }
 
   function appendErrMsg(data) {
-    searchResult.append(`<span>${data}</span>`)
+    searchResult.append(`<p>${data}</p>`)
   }
 
   $("#search__name").keyup(function () {
-    var input = $(this).val()
+    let input = $(this).val()
     if (input.length != 0) {
       $.ajax({
         type: "GET",
@@ -28,7 +28,6 @@ $(document).on('turbolinks:load', function () {
               appendfood(data)
             })
           } else {
-            $(".search__list").empty()
             appendErrMsg("一致するものがありませんでした")
           }
         })
@@ -40,12 +39,12 @@ $(document).on('turbolinks:load', function () {
     }
   })
 
-  $(document).on("click", ".search__list > p", function () {
-    var input = $(this).text()
+  $(document).on("click", ".append__food", function () {
+    let input = $(this).text()
     $("#search__name").val(input)
   })
 
-  $(document).on("click", ' :not(".search__list > p")', function () {
+  $(document).on("click", ' :not(".append__food")', function () {
     $(".search__list").empty()
   })
 
