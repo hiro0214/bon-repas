@@ -19,13 +19,13 @@ class Food < ApplicationRecord
   validates :category_id ,presence: true
   validates :servings ,presence: true
 
-  validate :require_any_foodstuffs
-  def require_any_foodstuffs
+  validate :blank_foodstuffs
+  def blank_foodstuffs
     errors.add("食材", "を入力して下さい") if foodstuffs.map{|f| f.material}.include?("") || foodstuffs.map{|f| f.amount}.include?("")
   end
 
-  validate :require_any_recipe
-  def require_any_recipe
+  validate :blank_recipe
+  def blank_recipe
     errors.add("工程", "を入力して下さい") if recipes.map{|r| r.process}.include?("")
   end
 

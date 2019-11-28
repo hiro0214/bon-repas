@@ -49,9 +49,9 @@ class FoodsController < ApplicationController
 
   def show
     # set_food
-    @foodstuffs = Foodstuff.where(food_id: params[:id])
-    @recipes = Recipe.where(food_id: params[:id])
-    @good = Good.where(food_id: params[:id])
+    @foodstuffs = @food.foodstuffs
+    @recipes = @food.recipes
+    @good = @food.goods
     if @food.category_id == "時短"
       @side_foods = Food.where(category_id: "時短").order("RAND()").limit(6)
     else
