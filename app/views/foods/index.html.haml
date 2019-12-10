@@ -51,7 +51,7 @@
   .main__contents
     .main__contents__top
       %p 肉の新着レシピ一覧
-      = form_with url: "/more", method: :get, local: true do |f|
+      = form_with url: more_foods_path, method: :get, local: true do |f|
         = f.hidden_field :category, value: "肉"
         = f.submit "もっと見る", class: "main__more"
     .main__contents__bottom
@@ -66,7 +66,7 @@
 
     .main__contents__top
       %p 野菜の新着レシピ一覧
-      = form_with url: "/more", method: :get, local: true do |f|
+      = form_with url: more_foods_path, method: :get, local: true do |f|
         = f.hidden_field :category, value: "野菜"
         = f.submit "もっと見る", class: "main__more"
     .main__contents__bottom
@@ -81,7 +81,7 @@
 
     .main__contents__top
       %p 時短の新着レシピ一覧
-      = form_with url: "/more", method: :get, local: true do |f|
+      = form_with url: more_foods_path, method: :get, local: true do |f|
         = f.hidden_field :category, value: "時短"
         = f.submit "もっと見る", class: "main__more"
     .main__contents__bottom
